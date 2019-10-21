@@ -1,0 +1,12 @@
+>>> import http.client
+>>> conn = http.client.HTTPSConnection("127.0.0.1", 8888)
+>>> conn.request("GET", "/")
+#SHELL# output_match: '''certificate verify failed'''
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/usr/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+...
+  File "/usr/lib/python3.6/ssl.py", line 689, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:841)

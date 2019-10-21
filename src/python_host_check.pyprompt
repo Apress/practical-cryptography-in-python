@@ -1,0 +1,17 @@
+>>> import http.client
+>>> import ssl
+>>> evil_context = ssl.SSLContext()
+>>> evil_context.verify_mode = ssl.CERT_REQUIRED
+>>> evil_context.load_verify_locations("domain_cert.crt")
+>>> evil_context.check_hostname = True
+>>> conn = http.client.HTTPSConnection("127.0.0.1", 8888, context=evil_context)
+>>> conn.request("GET", "/")
+#SHELL# output_match: '''doesn't match'''
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/usr/lib/python3.6/http/client.py", line 1239, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+...
+  File "/usr/lib/python3.6/ssl.py", line 331, in match_hostname
+    % (hostname, dnsnames[0]))
+ssl.CertificateError: hostname '127.0.0.1' doesn't match 'wacko.westantarctica.southpole.gov'

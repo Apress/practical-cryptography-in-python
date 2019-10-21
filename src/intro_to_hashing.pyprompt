@@ -1,0 +1,41 @@
+>>> import hashlib
+>>> md5hasher = hashlib.md5()
+>>> md5hasher.hexdigest()
+'d41d8cd98f00b204e9800998ecf8427e'
+>>> md5hasher = hashlib.md5(b'alice')
+>>> md5hasher.hexdigest()
+'6384e2b2184bcbf58eccf10ca7a6563c'
+>>> md5hasher = hashlib.md5(b'bob')
+>>> md5hasher.hexdigest()
+'9f9d51bc70ef21ca5c14f307980a29d8'
+>>> hashlib.md5(b'alice').hexdigest()
+'6384e2b2184bcbf58eccf10ca7a6563c'
+>>> hashlib.md5(b'bob').hexdigest()
+'9f9d51bc70ef21ca5c14f307980a29d8'
+>>> md5hasher = hashlib.md5()
+>>> md5hasher.update(b'a')
+>>> md5hasher.update(b'l')
+>>> md5hasher.update(b'i')
+>>> md5hasher.update(b'c')
+>>> md5hasher.update(b'e')
+>>> hexstring = hashlib.md5(b'bob').hexdigest()
+>>> hexstring
+'9f9d51bc70ef21ca5c14f307980a29d8'
+>>> binstring = bin(int(hexstring, 16))
+>>> print("{}\n{}".format(binstring[2:66], binstring[66:]))
+1001111110011101010100011011110001110000111011110010000111001010
+0101110000010100111100110000011110011000000010100010100111011000
+>>> import hashlib
+>>> hashlib.md5(b'alice').hexdigest()
+'6384e2b2184bcbf58eccf10ca7a6563c'
+>>> hashlib.sha1(b'alice').hexdigest()
+'522b276a356bdf39013dfabea2cd43e141ecc9e8'
+>>> hashlib.sha256(b'alice').hexdigest()
+'2bd806c97f0e00af1a1fc3328fa763a9269723c8db8fac4f93af71db186d6e90'
+>>> import hashlib
+>>> hashlib.md5(b'alice').hexdigest()
+'6384e2b2184bcbf58eccf10ca7a6563c'
+>>> hashlib.sha1(b'alice').hexdigest()
+'522b276a356bdf39013dfabea2cd43e141ecc9e8'
+>>> hashlib.sha256(b'alice').hexdigest()
+'2bd806c97f0e00af1a1fc3328fa763a9269723c8db8fac4f93af71db186d6e90'

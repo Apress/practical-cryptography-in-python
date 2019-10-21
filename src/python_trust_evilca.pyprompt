@@ -1,0 +1,10 @@
+>>> import http.client
+>>> import ssl
+>>> evil_context = ssl.SSLContext()
+>>> evil_context.verify_mode = ssl.CERT_REQUIRED
+>>> evil_context.load_verify_locations("domain_cert.crt")
+>>> conn = http.client.HTTPSConnection("127.0.0.1", 8888, context=evil_context)
+>>> conn.request("GET", "/")
+>>> r1 = conn.getresponse()
+>>> r1.read()
+#SHELL# output_ommitted

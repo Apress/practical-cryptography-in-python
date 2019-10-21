@@ -1,0 +1,11 @@
+>>> import http.client
+>>> import hashlib
+>>> conn = http.client.HTTPSConnection("google.com", 443)
+>>> conn.request("GET", "/")
+>>> conn.sock.getpeercert(binary_form=True)
+#SHELL# output_match: ''''''
+b'0\x82\x02\xdb0\x82\x01\xc3\xa0\...
+>>> peer_cert = conn.sock.getpeercert(binary_form=True)
+>>> hashlib.sha256(peer_cert).hexdigest()
+#SHELL# output_match: ''''''
+'bf52e8d42812c7a09586aa19219b0c15a92de6664aad380ed4c66dea7c6a5b3a'
