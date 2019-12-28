@@ -1,13 +1,13 @@
 # Errata for *Practical Cryptography in Python*
 
-On **page xx** [Summary of error]:
+On **page 42** [Incorrect source code]:
  
-Details of error here. Highlight key pieces in **bold**.
+The source code that starts at the bottom of page 42 is (incorrectly) a duplicate of *Listing 2-6* at the top of page 39. It should read:
+
+    >> import os, base64
+    >> salt = os.urandom(16) # 16-byte, random salt
+    >> base64.b64encode(salt)
+    b'Xgdue/5H8qZk/r8YT3Nx1A=='
 
 ***
 
-On **page xx** [Summary of error]:
- 
-Details of error here. Highlight key pieces in **bold**.
-
-***
