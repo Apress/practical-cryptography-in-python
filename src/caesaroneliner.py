@@ -25,7 +25,7 @@ def encode_cmp(message, subst):
             cipher += letter
     return cipher
 
-test_message = "test_message"
+test_message = "TEST_MESSAGE"
 subst, unsubst = create_shift_substitutions(10)
 if encode_cmp(test_message, subst) == encode(test_message, subst):
     print("[PASS]")
