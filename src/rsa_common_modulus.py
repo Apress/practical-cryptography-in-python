@@ -25,6 +25,9 @@ def common_modulus_decrypt(c1, c2, key1, key2):
         num1, num2 = num2, num1 % num2
     gcd = num1
     
+    if gcd != 1
+        raise ValueError("Common modulus attack requires GCD(e1,e2)==1.")
+        
     a = gmpy2.invert(key1_numbers.e, key2_numbers.e)
     b = float(gcd - (a*e1))/float(e2)
 
