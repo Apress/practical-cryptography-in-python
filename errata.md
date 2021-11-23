@@ -20,4 +20,8 @@ However, for completeness, the following check should be inserted into Listing 4
         raise ValueError("Common modulus attack requires GCD(e1,e2)==1")
         
 ****
+On **page 201** [Typo]
 
+The sentence "It is the subject's private key that is being stored in the certificate" should read, "It is the subject's public key that is being stored in the certificate."
+
+****
