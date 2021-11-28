@@ -39,7 +39,8 @@ class TransmissionManager:
                 mgf=padding.MGF1(algorithm=hashes.SHA256()),
                 algorithm=hashes.SHA256(),
                 label=None)) # rarely used. Just leave it 'None'
-        ciphertext = data+signature
+
+        ciphertext += signature
         self.mac.update(ciphertext)
         return ciphertext
 
