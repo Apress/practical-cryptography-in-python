@@ -25,3 +25,6 @@ On **page 201** [Typo]
 The sentence "It is the subject's private key that is being stored in the certificate" should read, "It is the subject's public key that is being stored in the certificate."
 
 ****
+On **page 215** [typo]
+
+The source code at approximately line 42 reads, `ciphertext = data+signature`. It should read `ciphertext += signature`. The corresponding source code in github has also been updated.
